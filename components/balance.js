@@ -35,8 +35,8 @@ console.log(data);
 
     return (
         <TabContainer>
-            <Text> My ERC20 Tokens</Text>
-            {ethBalance && <Text> {ethBalance} ETH </Text>}
+            <Text mb="6" fontSize="xl" fontWeight="bold"> My ERC20 Tokens</Text>
+            {ethBalance && <Text> {ethBalance} <b>ETH </b>  </Text>}
             <Divider/>
             {data && data.map(token=> (
                 <div key={token.symbol}>

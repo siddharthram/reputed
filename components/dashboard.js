@@ -3,6 +3,7 @@ import Head from "next/head";
 import Balance from "./balance";
 import NavBar from "./navbar";
 import Profile from "./profile";
+import Transactions from "./transactions";
 
 export default function Dashboard({user, logout, isLoggingOut}) {
 return (
@@ -25,7 +26,7 @@ return (
             <TabPanels>
               <TabPanel> <Profile user={user}/> </TabPanel>
               <TabPanel> <Balance user={user}/></TabPanel>
-              <TabPanel> Transactions</TabPanel>
+              <TabPanel> <Transactions user={user} /> </TabPanel>
               <TabPanel> NFTs</TabPanel>
               <TabPanel> Send ETH</TabPanel>
             </TabPanels>
