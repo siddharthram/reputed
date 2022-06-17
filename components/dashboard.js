@@ -1,6 +1,8 @@
-import { Flex, Text, Button, Box, Tabs, TabList, Tab, TabPanel, TabPanels } from "@chakra-ui/react";
+import { Flex, Box, Tabs, TabList, Tab, TabPanel, TabPanels } from "@chakra-ui/react";
 import Head from "next/head";
+import Balance from "./balance";
 import NavBar from "./navbar";
+import Profile from "./profile";
 
 export default function Dashboard({user, logout, isLoggingOut}) {
 return (
@@ -21,8 +23,8 @@ return (
               <Tab fontWeight="bold"> Send ETH </Tab>
             </TabList>
             <TabPanels>
-              <TabPanel> Profile</TabPanel>
-              <TabPanel> Balance</TabPanel>
+              <TabPanel> <Profile user={user}/> </TabPanel>
+              <TabPanel> <Balance user={user}/></TabPanel>
               <TabPanel> Transactions</TabPanel>
               <TabPanel> NFTs</TabPanel>
               <TabPanel> Send ETH</TabPanel>

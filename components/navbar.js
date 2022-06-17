@@ -18,7 +18,7 @@ return (
               ml="4"
               colorScheme="purple"
               onClick={logout}
-              disable={isLoggingOut}
+              disabled={isLoggingOut}
               >
               Logout
             </Button>
