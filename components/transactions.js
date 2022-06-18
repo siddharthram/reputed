@@ -24,8 +24,7 @@ export default function Transactions ({user}) {
     useEffect(() => {
         fetchTransactions();
     },[]);
-    console.log("yo");
-    console.log(transactions);
+ 
 
     return (
     <TabContainer>

@@ -18,7 +18,6 @@ const fetchNativeBalance = async() => {
         console.log(e);
     });
     if (result.balance) {
-    console.log(result);
     setEthBalance(Moralis.Units.FromWei(result.balance));
     }
 }
@@ -30,8 +29,6 @@ useEffect(() => {
         address: user.get("ethAddress")
     })
 },[]);
-
-console.log(data);
 
     return (
         <TabContainer>

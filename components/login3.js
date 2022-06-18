@@ -5,17 +5,30 @@ import Image from "next/image";
 import NavBar from "./navbar";
 import LoggedIn from "./dashboard";
 import Dashboard from "./dashboard";
+import { MoralisContext } from "react-moralis";
+import  UserContext  from "../store/usercontext";
+import { useContext } from "react";
 
-function handleAuth(authenticate) {
-  authenticate({
+
+async function handleAuth(authenticate, setUsers) {
+  const response = await authenticate({
     signingMessage: "Please allow Reputed to connect your wallet",
   });
+  const user = response;
+  console.log("user is", user.get('ethAddress'));
+  setUsers(user);
 }
 
-export default function Login() {
-  const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
-    useMoralis();
-  console.log(isAuthenticated);
+export default function Login3() {
+  const { 
+    isAuthenticated, 
+    authenticate, 
+    user, 
+    logout, 
+    isLoggingOut } = useMoralis();
+    const {users, setUsers} = useContext(UserContext);
+    console.log("usestate", setUsers );
+
   if (!isAuthenticated) {
     return (
       <>
@@ -41,7 +54,7 @@ export default function Login() {
             colorScheme="purple"
             size="lg"
             mt="20"
-            onClick={() => handleAuth(authenticate)}
+            onClick={() => handleAuth(authenticate, setUsers)}
           >
             Login with Metamask
           </Button>
@@ -49,6 +62,7 @@ export default function Login() {
       </>
     );
   } else {
+
     return (
       <Dashboard user={user} logout={logout} isloggingout={isLoggingOut}/>
     );
